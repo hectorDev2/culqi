@@ -3,10 +3,13 @@ import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useEmployeesStore } from '../store/employees';
 import { useEmployees } from '../composables/useEmployees';
-import CardTable from '../shared/components/CardTable.vue'
-import DashboardLayout from '../layout/DashboardLayout.vue'
+import CardTable from '../shared/components/CardTable.vue';
+import CardTableLoading from '../shared/components/CardTableLoading.vue';
+import DashboardLayout from '../layout/DashboardLayout.vue';
 
-const {  mixEmployeesArray, limit,loading} = useEmployees();
+const {  mixEmployeesArray,loading, limit} = useEmployees();
+console.log(loading);
+
 const route = useRoute();
 
 function load(val?: string) {
