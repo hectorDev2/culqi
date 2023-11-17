@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-// import { useUsers } from "@/composables/useUser";
+import { useUsers } from '../../composables/useUser';
 
-// const user = useUsers();
-// const { authUser } = useUsers();
+const user = useUsers();
+const { authUser } = useUsers();
 
 const state = reactive({
   email: "",
@@ -11,7 +11,7 @@ const state = reactive({
 });
 
 async function login() {
-  //  await authUser(state.email, state.password)
+   await authUser(state.email, state.password)
 }
 
 </script>
@@ -43,6 +43,7 @@ async function login() {
     <div class="mt-7 mb-7">
       <button type="submit"
         class="block w-full rounded-[10px] bg-gray-900 px-3 py-4 text-base font-bold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success btn-login"
+        :class="{ 'btn-loading': user.loading }"
         >
         <span class="btn-text">Iniciar sesión</span>
       </button>

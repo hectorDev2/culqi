@@ -2,10 +2,12 @@ import { storeToRefs } from "pinia";
 import { useUserStore } from "../store/user";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import userLogin from "../utils/userLogin";
+import { useToken } from "./useToken";
 
 export const useUsers = () => {
   const userStore = useUserStore();
-  // const { setToken, setAuthData, setAuthAxios, removeToken } = useToken();
+  const { setToken, setAuthData, removeToken } = useToken();
   const router = useRouter();
 
   const { user, loading, msgError } = storeToRefs(userStore);
@@ -29,20 +31,21 @@ export const useUsers = () => {
   const authUser = async (email: string, password: string) => {
     userStore.setLoading(true);
     userStore.setError("");
-    // const data = await userLogin(email, password);
-    // if (data !== undefined) {
-    //   // setToken(data.token);
-    //   // setAuthData(data.user);
-    //   // setAuthAxios();
-    //   // userStore.setLoading(false);
-    //   router.push({ name: "Employees" });
-    // } else {
-    //   userStore.setLoading(false);
-    // }
+    const data = await userLogin(email, password);
+    console.log(data, "data");
+
+    if (data !== undefined) {
+      setToken(data.token);
+      setAuthData(data.user);
+      userStore.setLoading(false);
+      router.push({ name: "Employees" });
+    } else {
+      userStore.setLoading(false);
+    }
   };
 
   const logoutUser = () => {
-    // removeToken();
+    removeToken();
     userStore.clearState();
     router.push({ name: "Login" });
   };
