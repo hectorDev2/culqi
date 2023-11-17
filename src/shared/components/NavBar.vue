@@ -6,6 +6,7 @@ import { useUserStore } from '../../store/user';
 
 
 const { user, nameInitals } = useUsers()
+console.log(user,nameInitals)
 const auth = useUserStore();
 
 </script>

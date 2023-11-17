@@ -5,22 +5,23 @@ import SideBar from '../shared/components/SideBar.vue';
 import NavBar from '../shared/components/NavBar.vue';
 
 
-// import { useToken } from "@/composables/useToken";
 import { useUserStore } from "../store/user";
+import { useToken } from '../composables/useToken';
+import { User } from '../interfaces/user';
 
 
-// const { getAuthData } = useToken();
+const { getAuthData } = useToken();
 
 const auth = useUserStore();
 
 auth.setIsMenu(false)
 
 if (auth.user === undefined) {
-    // const data = getAuthData();
-    // if (Object.keys(data).length > 0) {
-    //     //const dataUser = JSON.parse(data);
-    //     auth.setUser(data);
-    // }
+    const data = getAuthData();
+    if (Object.keys(data).length > 0) {
+        //const dataUser = JSON.parse(data);
+        auth.setUser(data as User);
+    }
 }
 
 </script>
