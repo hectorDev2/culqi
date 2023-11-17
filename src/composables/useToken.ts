@@ -26,7 +26,7 @@ export const useToken = () => {
     }
   };
 
-  const setAuthFetch = () => {
+  const authFetchOptions = () => {
     const token = getToken();
     if (token) {
       const headers = new Headers({
@@ -39,6 +39,7 @@ export const useToken = () => {
         headers: headers,
       };
 
+      return requestOptions;
       // Agrega este requestOptions a tus solicitudes fetch
       // fetch('/tu/ruta', requestOptions)
     }
@@ -54,7 +55,7 @@ export const useToken = () => {
     getToken,
     setAuthData,
     getAuthData,
-    setAuthFetch,
+    authFetchOptions,
     removeToken,
   };
 };

@@ -1,11 +1,16 @@
+import { useToken } from "../composables/useToken";
 import { DataEmployees } from "../interfaces/employees";
 
 const getListEmployees = async (
   page: number,
   limit: number
 ): Promise<DataEmployees | undefined> => {
+  const { authFetchOptions } = useToken();
   try {
-    const response = await fetch(`/api/empleados?limit=${limit}&page=${page}`);
+    const response = await fetch(
+      `https://fepruebatecnicaculqi-backend-production.up.railway.app/empleados?limit=${limit}&page=${page}`,
+      authFetchOptions()
+    );
 
     if (!response.ok) {
       const errorData = await response.json();
