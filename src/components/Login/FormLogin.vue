@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
 import { useUsers } from '../../composables/useUser';
+import ErrorAlert from '../../shared/components/ErrorForm.vue'
+import { useUserStore } from '../../store/user';
+const user = useUserStore();
 
-const user = useUsers();
 const { authUser } = useUsers();
 
 const state = reactive({
@@ -11,6 +13,8 @@ const state = reactive({
 });
 
 async function login() {
+  console.log(user.msgError,'iser');
+  
    await authUser(state.email, state.password)
 }
 
@@ -38,7 +42,7 @@ async function login() {
       </div>
     </div>
 
-    <!-- <AlertType v-if="user.msgError" type="failed" :text="user.msgError" /> -->
+    <ErrorAlert v-if="user.msgError" type="failed" :text="user.msgError" />
 
     <div class="mt-7 mb-7">
       <button type="submit"

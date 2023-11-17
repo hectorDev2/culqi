@@ -1,6 +1,8 @@
 import type { DataUser } from "../interfaces/user";
 import { useUserStore } from "../store/user";
 
+const apiUrl = import.meta.env.VITE_API_CULQI;
+
 const userAuth = async (
   email: string,
   password: string
@@ -8,22 +10,21 @@ const userAuth = async (
   const user = useUserStore();
 
   try {
-    const response = await fetch(
-      `https://fepruebatecnicaculqi-backend-production.up.railway.app/auth/login/`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          correo: email,
-          password,
-        }),
-      }
-    );
+    console.log({ apiUrl });
+
+    const response = await fetch(`${apiUrl}auth/login/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        correo: email,
+        password,
+      }),
+    });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error(`contraseña o usuario incorrecto!`);
     }
 
     const result = await response.json();

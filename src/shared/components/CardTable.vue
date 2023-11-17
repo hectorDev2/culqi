@@ -181,7 +181,7 @@ const { page, limit, total, search, position, positions, listEmployees, totalPag
                             <option class="text-sm font-medium" value="20">Mostrar 20</option>
                             <option class="text-sm font-medium" value="50">Mostrar 50</option>
                         </select>
-                        <div class="pointer-events-none absolute pin-y pin-r flex items-center pl-2 pr-3 text-grey-darker">
+                        <div class="pointer-events-none absolute bottom-[10px] right-0 pin-y pin-r flex items-center pl-2 pr-3 text-grey-darker">
                             <IconSelectDown />
                         </div>
                     </div>
