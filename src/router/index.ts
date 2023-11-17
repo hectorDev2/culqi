@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
-//import HomePage from "@/shared/pages/HomePage.vue";
 import LoginPage from "../pages/LoginPage.vue";
+import EmployeesPage from "../pages/Employees.vue";
 
 const routes: RouteRecordRaw[] = [
   //Public
@@ -22,6 +22,16 @@ const routes: RouteRecordRaw[] = [
     component: LoginPage,
     meta: {
       guest: true,
+    },
+  },
+
+  //Employees
+  {
+    path: "/empleados/:page?",
+    name: "Employees",
+    component: EmployeesPage,
+    meta: {
+      auth: true,
     },
   },
 
