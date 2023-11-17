@@ -9,16 +9,15 @@ export const useEmployees = () => {
   const { employees, page, limit, total, search, position, loading } =
     storeToRefs(employeesStore);
 
-  const mixEmployeesArray = async (page: number = 1, limit: number) => {
+  const mixEmployeesArray = async (page = 1, limit: number) => {
     employeesStore.setLoading(true);
     const data = await getEmployees(page, limit);
-    if (data !== undefined) {
+
+    if (data) {
       employeesStore.loadEmployees(data.data);
       employeesStore.setTotal(data.total);
-      employeesStore.setLoading(false);
-    } else {
-      employeesStore.setLoading(false);
     }
+    employeesStore.setLoading(false);
   };
 
   const positions = computed(() => {

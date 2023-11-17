@@ -1,5 +1,6 @@
 import { useToken } from "../composables/useToken";
 import { DataEmployees } from "../interfaces/employees";
+const apiUrl = import.meta.env.VITE_API_CULQI;
 
 const getListEmployees = async (
   page: number,
@@ -8,7 +9,7 @@ const getListEmployees = async (
   const { authFetchOptions } = useToken();
   try {
     const response = await fetch(
-      `https://fepruebatecnicaculqi-backend-production.up.railway.app/empleados?limit=${limit}&page=${page}`,
+      `${apiUrl}empleados?limit=${limit}&page=${page}`,
       authFetchOptions()
     );
 

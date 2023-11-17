@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
-import LoginPage from "../pages/LoginPage.vue";
-import EmployeesPage from "../pages/Employees.vue";
 
+import EmployeesPage from "../pages/Employees.vue";
+import { useToken } from "../composables/useToken";
+import LoginPage from "../pages/LoginPage.vue";
+
+const { getToken } = useToken();
 const routes: RouteRecordRaw[] = [
   //Public
   {
@@ -44,4 +47,13 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.auth) && !getToken()) {
+    next({ name: "Login" });
+  } else if (to.matched.some((record) => record.meta.guest) && getToken()) {
+    next({ name: "Employees" });
+  } else {
+    next();
+  }
+});
 export default router;

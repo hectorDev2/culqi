@@ -40,8 +40,8 @@ export const useToken = () => {
       };
 
       return requestOptions;
-      // Agrega este requestOptions a tus solicitudes fetch
-      // fetch('/tu/ruta', requestOptions)
+      // Agrega este requestOptions a las solicitudes fetch
+      // fetch('/tu/ruta', requestOptions())
     }
   };
 
