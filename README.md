@@ -1,18 +1,105 @@
-# Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Reto de programacion para Culqi
 
-## Recommended IDE Setup
+Culqi desea ofrecer un sistema para el manejo de personal a los comercios que tiene como cliente.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Para ello se tiene un diseño que cubre dos funcionalidades básicas:
 
-## Type Support For `.vue` Imports in TS
+- Autenticación
+- Listado de empleados
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Stack Tecnologico
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+ - [Vue](https://vuejs.org/)
+ - [Pinia](https://pinia.vuejs.org/)
+ - [Consumo de API rest](https://www.redhat.com/es/topics/api/what-is-a-rest-api)
+
+
+## API Reference
+
+#### GET ALL EMPLOYEES usando el api proporcionado en las especificaciones del proyecto 
+
+```http
+  GET /empleados?limit=10&page=4
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `VITE_API_CULQI` | `string` | **Required**. Api otorgada por Culqi |
+
+#### Inicio de sesion con token
+
+```http
+  POST /auth/login
+```
+
+```json
+{
+  "correo": "c.quispe@culqi.com",
+  "password": "admin123"
+}
+```
+
+
+teniendo como respuesta 
+```json
+{
+    "status": "success",
+    "data": {
+        "token": "eyJ...0ROjxM",
+        "user": {
+            "id": 1,
+            "nombre": "Christian Quispe",
+            "correo": "c.quispe@culqi.com",
+            "cargo": "System Administrator",
+            "departamento": "IT Team",
+            "oficina": "Culqi Office",
+            "estadoCuenta": "Activada"
+        }
+    }
+}
+```
+
+usaremos el token para hacer la navegacion dentro de nuestra APP
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  yarn dev
+  npm run dev
+```
+
+
+## Por evaluar
+
+- Dominio de Vue 3 + Typescript
+- Dominio de maquetación
+- Imágenes, iconos y colores
+- Entrega
+
+
+## Instalacion y deploy
+
+clonar este repositorio
+
+```bash
+  1.- cd culqi
+  2.- yarn add or npm install
+  3.- yarn dev or npm run dev
+```
+
+
+## Para test
+
+clonar este repositorio
+
+```bash
+  yarn test or npm run test
+``` 
+## Authors
+
+- [@hectorDev2](https://github.com/hectorDev2)
+
