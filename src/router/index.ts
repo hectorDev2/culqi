@@ -48,6 +48,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log(from);
   if (to.matched.some((record) => record.meta.auth) && !getToken()) {
     next({ name: "Login" });
   } else if (to.matched.some((record) => record.meta.guest) && getToken()) {
