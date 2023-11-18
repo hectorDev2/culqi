@@ -15,7 +15,7 @@ const state = reactive({
 });
 
 async function login() {
-   await authUser(state.email, state.password)
+  await authUser(state.email, state.password)
 }
 
 </script>

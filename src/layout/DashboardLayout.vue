@@ -19,7 +19,6 @@ auth.setIsMenu(false)
 if (auth.user === undefined) {
     const data = getAuthData();
     if (Object.keys(data).length > 0) {
-        //const dataUser = JSON.parse(data);
         auth.setUser(data as User);
     }
 }

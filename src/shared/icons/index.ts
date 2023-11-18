@@ -1,0 +1,14 @@
+export { default as IconDelete } from "../icons/IconDelete.vue";
+export { default as IconDownload } from "../icons/IconDownload.vue";
+export { default as IconEdit } from "../icons/IconEdit.vue";
+export { default as IconEmployees } from "../icons/IconEmployees.vue";
+export { default as IconEye } from "../icons/IconEye.vue";
+export { default as IconFailedAlert } from "../icons/IconFailedAlert.vue";
+export { default as IconLeft } from "../icons/IconLeft.vue";
+export { default as IconLoading } from "../icons/IconLoading.vue";
+export { default as IconMenu } from "../icons/IconMenu.vue";
+export { default as IconRight } from "../icons/IconRight.vue";
+export { default as IconPlus } from "../icons/IconPlus.vue";
+export { default as IconSearch } from "../icons/IconSearch.vue";
+export { default as IconRecruitment } from "../icons/IconRecruitment.vue";
+export { default as IconSelectDown } from "../icons/IconSelectDown.vue";

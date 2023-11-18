@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    hello
+    Hello Vitest
 </template>
 
 <style scoped></style>

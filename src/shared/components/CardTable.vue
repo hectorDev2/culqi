@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import CardView from './CardView.vue';
-import IconDownload from '../icons/IconDownload.vue';
-import IconPlus from '../icons/IconPlus.vue';
-import IconSearch from '../icons/IconSearch.vue';
-import IconEye from '../icons/IconEye.vue';
-import IconEdit from '../icons/IconEdit.vue';
-import IconDelete from '../icons/IconDelete.vue';
-import IconLeft from '../icons/IconLeft.vue';
-import IconRight from '../icons/IconRight.vue';
-import IconSelectDown from '../icons/IconSelectDown.vue';
+import {
+    IconDownload,
+    IconPlus,
+    IconEye,
+    IconEdit,
+    IconLeft,
+    IconDelete,
+    IconSearch,
+    IconSelectDown,
+    IconRight} from "../icons"
+    
 import { useEmployees } from '../../composables/useEmployees';
 
 
